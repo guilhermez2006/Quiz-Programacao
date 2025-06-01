@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg,
+            #31005f 0%,
+            #3f0092 25%,
+            #4a0099 50%,
+            #3f0088 75%,
+            #31005f 100%);
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.8rem;
+    background: linear-gradient(to right, #d8b4fe, #9333ea);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+    padding: 0;
+    text-shadow: 0 2px 10px rgba(148, 51, 234, 0.5);
+    letter-spacing: 1px;
+}
+
+.container-Principal {
+    width: 510px;
+    height: 400px;
+    background: rgba(20, 0, 40, 0.7);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-top: 16%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos das perguntas e opções */
+.pergunta-texto {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.opcoes-container {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.opcao {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.opcao:hover {
+  background: rgba(146, 51, 234, 0.4);
+}
+
+.opcao:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.contador {
+  text-align: center;
+  opacity: 0.7;
+}
+
+.resultado {
+  font-size: 1.8rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.btn-reiniciar {
+  background: #9333ea;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+  transition: all 0.3s;
+}
+
+.btn-reiniciar:hover {
+  background: #7b2cbf;
+  transform: translateY(-2px);
+}
