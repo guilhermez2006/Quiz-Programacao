@@ -1,14 +1,22 @@
+/* empurra tudo pra baixo em 2K sem separar h1 do container */
 @media (min-width: 1920px) {
+    body {
+        padding-top: 12vh;
+    }
+
+    h1 {
+        font-size: 3.2rem;
+    }
+
     .container-Principal {
-        margin-top: 8vh;
-        width: 560px;
+        width: 580px;
         height: 460px;
     }
 }
 
 @media (max-width: 768px) {
     header {
-        padding: 1.5rem 0 0.5rem;
+        padding: 1.5rem 0 0.75rem;
     }
 
     h1 {
@@ -21,7 +29,6 @@
         height: auto;
         min-height: 380px;
         padding: 1.5rem;
-        margin: 1.5rem auto;
     }
 
     .pergunta-texto {
@@ -46,11 +53,6 @@
 }
 
 @media (max-width: 480px) {
-    body {
-        justify-content: flex-start;
-        padding: 0 0 1.5rem;
-    }
-
     h1 {
         font-size: 1.75rem;
     }
@@ -60,7 +62,6 @@
         height: auto;
         min-height: 360px;
         padding: 1.25rem 1rem;
-        margin: 0.75rem auto;
     }
 
     .pergunta-texto {

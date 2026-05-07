@@ -18,11 +18,11 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    padding: 0;
     min-height: 100vh;
     background-color: var(--bg-base);
     background-image:
@@ -39,7 +39,7 @@ body {
 
 header {
     width: 100%;
-    padding: 2.5rem 0 1rem;
+    padding: 3rem 0 1.5rem;
     text-align: center;
 }
 
@@ -47,25 +47,35 @@ h1 {
     font-family: 'DM Serif Display', serif;
     font-size: 2.8rem;
     font-weight: 400;
+    margin-bottom: 1%;
     background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-mid) 50%, var(--gold-dark) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    margin: 0;
-    padding: 0;
     letter-spacing: 0.5px;
-    text-shadow: none;
     filter: drop-shadow(0 2px 16px rgba(245, 158, 11, 0.3));
+}
+
+/* main apenas agrupa, sem flex nem altura forçada */
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .container-Principal {
     width: 510px;
-    /* altura fixa — impede resize ao trocar entre perguntas com 3 ou 4 opcoes */
     height: 440px;
     background: var(--bg-card);
     border-radius: 20px;
     padding: 2.5rem;
-    margin-top: 6vh;
     box-shadow: var(--shadow-card);
     border: 1px solid var(--border-subtle);
     backdrop-filter: blur(20px);
@@ -88,14 +98,8 @@ h1 {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(24px) scale(0.98);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+    from { opacity: 0; transform: translateY(24px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .pergunta-texto {
@@ -199,13 +203,13 @@ h1 {
     box-shadow: 0 8px 28px rgba(253, 230, 138, 0.35);
 }
 
-/* ── Footer ── */
+/* footer sempre no fundo */
 .copyright {
     margin-top: auto;
+    width: 100%;
     padding: 1rem 0 2rem;
     text-align: center;
-    font-size: 0.85rem;
-    font-weight: 400;
+    font-size: 0.80rem;
     color: var(--text-muted);
     letter-spacing: 0.02em;
 }
