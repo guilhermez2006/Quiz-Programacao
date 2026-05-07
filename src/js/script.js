@@ -110,44 +110,47 @@ const perguntas = [
     }
 ];
 
-// Variáveis de controle
 let perguntaAtual = 0;
 let pontuacao = 0;
 
+// escapa caracteres HTML para evitar que textos como <!-- --> quebrem o DOM
+function escaparHTML(texto) {
+    return texto
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
 
 function mostrarPergunta() {
     const container = document.querySelector('.container-Principal');
     const pergunta = perguntas[perguntaAtual];
 
-    var opcoesHTML = '';
-    for (var i = 0; i < pergunta.opcoes.length; i++) {
-        opcoesHTML += '<button class="opcao" onclick="verificarResposta(' + i + ')">' + pergunta.opcoes[i] + '</button>';
+    let opcoesHTML = '';
+    for (let i = 0; i < pergunta.opcoes.length; i++) {
+        opcoesHTML += `<button class="opcao" onclick="verificarResposta(${i})">${escaparHTML(pergunta.opcoes[i])}</button>`;
     }
 
     container.innerHTML =
-        '<h2 class="pergunta-texto">' + pergunta.pergunta + '</h2>' +
-        '<div class="opcoes-container">' + opcoesHTML + '</div>' +
-        '<p class="contador">' + (perguntaAtual + 1) + '/' + perguntas.length + '</p>';
+        `<h2 class="pergunta-texto">${escaparHTML(pergunta.pergunta)}</h2>
+         <div class="opcoes-container">${opcoesHTML}</div>
+         <p class="contador">${perguntaAtual + 1} / ${perguntas.length}</p>`;
 }
 
 function verificarResposta(indice) {
     const pergunta = perguntas[perguntaAtual];
     const botoes = document.querySelectorAll('.opcao');
 
+    botoes.forEach(b => b.disabled = true);
+
     if (indice === pergunta.respostaCorreta) {
+        botoes[indice].classList.add('correta');
         pontuacao++;
-        botoes[indice].style.background = '#4CAF50';
     } else {
-        botoes[indice].style.background = '#F44336'; 
-        botoes[pergunta.respostaCorreta].style.background = '#4CAF50';
+        botoes[indice].classList.add('errada');
+        botoes[pergunta.respostaCorreta].classList.add('correta');
     }
 
-    // Desabilita os botões depois de responder
-    for (var i = 0; i < botoes.length; i++) {
-        botoes[i].disabled = true;
-    }
-
-    // Próxima pergunta depois de 1.5 segundos
     setTimeout(function () {
         perguntaAtual++;
         if (perguntaAtual < perguntas.length) {
@@ -161,12 +164,11 @@ function verificarResposta(indice) {
 function mostrarResultado() {
     const container = document.querySelector('.container-Principal');
     container.innerHTML =
-        '<h2>Quiz Concluído! 🎉</h2>' +
-        '<p class="resultado">Você acertou ' + pontuacao + ' de ' + perguntas.length + ' perguntas!</p>' +
-        '<button onclick="reiniciarQuiz()" class="btn-reiniciar">Jogar Novamente</button>';
+        `<h2 class="pergunta-texto">Quiz Concluído! 🎉</h2>
+         <p class="resultado">Você acertou ${pontuacao} de ${perguntas.length} perguntas!</p>
+         <button onclick="reiniciarQuiz()" class="btn-reiniciar">Jogar Novamente</button>`;
 }
 
-// Função que reinicia o quiz
 function reiniciarQuiz() {
     perguntaAtual = 0;
     pontuacao = 0;

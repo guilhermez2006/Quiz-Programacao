@@ -1,0 +1,90 @@
+@media (min-width: 1920px) {
+    .container-Principal {
+        margin-top: 8vh;
+        width: 560px;
+        height: 460px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1.5rem 0 0.5rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .container-Principal {
+        width: 90%;
+        max-width: 420px;
+        height: auto;
+        min-height: 380px;
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+
+    .pergunta-texto {
+        font-size: 1.05rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .opcao {
+        padding: 10px 12px;
+        font-size: 0.88rem;
+    }
+
+    .resultado {
+        font-size: 1.3rem;
+        margin: 1.25rem 0;
+    }
+
+    .btn-reiniciar {
+        padding: 10px 24px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        justify-content: flex-start;
+        padding: 0 0 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .container-Principal {
+        width: 95%;
+        height: auto;
+        min-height: 360px;
+        padding: 1.25rem 1rem;
+        margin: 0.75rem auto;
+    }
+
+    .pergunta-texto {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .opcao {
+        padding: 9px 11px;
+        font-size: 0.85rem;
+        min-height: 40px;
+    }
+
+    .resultado {
+        font-size: 1.2rem;
+    }
+
+    .btn-reiniciar {
+        width: 100%;
+        padding: 11px 24px;
+    }
+
+    .copyright {
+        font-size: 0.7rem;
+        padding: 0.75rem 1rem 1.25rem;
+    }
+}
